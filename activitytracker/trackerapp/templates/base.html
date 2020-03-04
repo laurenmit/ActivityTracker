@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css" />
+  <meta name="viewport" content="width = device-width,initial-scale=1" /> {% load static %}
+  <link rel="stylesheet" href="{% static 'trackerapp/static/my_styling.css' %}" type="text/css"> {% block theHead %}
+  <title>Activity Tracker</title>
+  {% endblock %}
+
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{% url 'home' %}">Activity Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'results' %}">Results <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block theBody %}
+  <div class="container">
+    <br />
+    <h1>Activity Tracker</h1>
+    <br />
+    <p>
+      Welcome to your activity tracker! <br /> <br /> Enter your exercise information to track your kilometers. To help motivate you, we will measure your progress against a trip from Cape Town to Plettenberg Bay.
+      <br />
+    </p>
+    <form method="post">
+      {% csrf_token %} {{form.as_p}}
+      <button type="submit" class="btn btn-primary" /> Submit </button>
+    </form>
+    <br />
+    <h3>Cape Town to Plettenberg Bay</h3>
+    <div class="col-md-6">
+      <h4>Distance Goal: 520 km</h4>
+    </div>
+
+    <br/>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Distance Travelled:</h4>
+        <h4>{{ totals.distance_km }} km</h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Time Travelled:</h4>
+        <h4>{{ totals.time_total }}</h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Average Pace:</h4>
+        <h4>200 km/hour</h4>
+        </br>
+      </div>
+    </div>
+    <div class="row">
+      </br>
+      <div class="col-md-10">
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div>
+        </br>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="container">
+
+
+    <div class="container">
+      {% load staticfiles %}
+      <img src="{% static 'trackerapp/static/map.jpg'%}" />
+
+      <p>
+
+      </p>
+    </div>
+
+    {% endblock %}
+</body>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,29 @@
+#emphasize-primary{
+  font-weight: bold;
+}
+
+#progress{
+  text-align: center;
+}
+
+#progress_heading{
+  text-decoration: underline;
+  text-align: center;
+}
+
+img{
+  border: 2px solid;
+  border-color: #78C1AD;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#center_text{
+  text-align: center;
+}
+
+#block{
+  border: 2px solid;
+  border-color: #78C1AD;
+}

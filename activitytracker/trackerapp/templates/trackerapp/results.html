@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block theHead %}
+<title>Results</title>
+{% endblock %} {% block theBody %}
+<div class="container">
+
+
+  <div class="row" id="progress">
+    <div class="col-md-12">
+      <br />
+      <h1>Activity Tracker Results</h1>
+      <p>
+        Let's see how well you've done! <br />
+      </p>
+    </div>
+  </div>
+
+  <div class="container" id="block">
+    <div class="row" id="progress">
+      <div class="col-md-12">
+        </br>
+        <h3>Cape Town to Plettenberg Bay: 520 km</h3>
+        </br>
+      </div>
+    </div>
+    <div class="row" id="progress">
+      <div class="col-md-12">
+        <h4> Progress: {{progress}} %</h4>
+      </div>
+    </div>
+
+    </br>
+    <div class="row">
+      <div class="col-md-4" id="progress">
+        <h4 id="progress_heading">Distance Travelled:</h4>
+        <h4>{{totals.distance_km}} km</h4>
+      </div>
+      <div class="col-md-4" id="progress">
+        <h4 id="progress_heading">Time Travelled:</h4>
+        <h4>{{time_stamp}} hours</h4>
+      </div>
+      <div class="col-md-4" id="progress">
+        <h4 id="progress_heading">Average Pace:</h4>
+        <h4>{{avg_pace}} km/hour</h4>
+        </br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" id="progress">
+        {% if success%}
+        <h3 class="text-secondary" id="progress">Congratulations! You did it!</h3> {%endif%}
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<div class="container">
+  </br>
+  {% load staticfiles %}
+
+  <img src="{% static 'trackerapp/static/map.jpg'%}" />
+
+</div>
+
+{% endblock %}

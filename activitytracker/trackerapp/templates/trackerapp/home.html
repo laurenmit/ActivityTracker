@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block theHead %}
+<title>Activity Tracker</title>
+{% endblock %} {% block theBody %}
+
+<div class="container">
+  <br />
+  <h1>Activity Tracker</h1>
+  <br />
+  <div class="row" id="block">
+    <div class="col-md-6">
+      </br>
+      <p>
+        Welcome to your activity tracker! <br /> <br /> Enter your exercise information to track your kilometers.</br>
+        To help motivate you, we will measure your progress against a trip from Cape Town to Plettenberg Bay.
+        <br />
+      </p>
+    </div>
+    <div class="col-md-6">
+      </br>
+      <p> Enter your activity details: </p>
+      <form method="post">
+        {% csrf_token %} {{form.as_p}}
+        <button type="submit" class="btn btn-primary" /> Submit </button>
+      </form>
+      <br />
+      <br />
+    </div>
+  </div>
+
+  <div class="row">
+    </br>
+    <div class="col-md-12" id="center_text">
+      </br>
+      <h3>Cape Town to Plettenberg Bay: 520 km</h3>
+    </div>
+  </div>
+
+  <br/>
+</div>
+
+
+
+
+<div class="container">
+
+
+  <div class="container">
+    {% load staticfiles %}
+    <img src="{% static 'trackerapp/static/map.jpg'%}" />
+
+    <p>
+
+    </p>
+  </div>
+
+  {% endblock %}
